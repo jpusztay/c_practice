@@ -20,5 +20,7 @@ $(ODIR)/%.o: %.c $(DEPS)
 interpreter: $(OBJ)
 	gcc -o $@ $^ $(CFLAGS) $(LIBS)
 
+.PHONY: clean
+
 clean:
 	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ 
