@@ -7,17 +7,17 @@ LDIR =../lib
 
 LIBS=-lm
 
-_DEPS = LinkedList.h
+_DEPS = LinkedList.h BinOp.h ScopeTable.h Stack.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = LinkedList.o interpreter.o 
+_OBJ = LinkedList.o interpreter.o BinOp.o Stack.o ScopeTable.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 
 $(ODIR)/%.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-interpretermake: $(OBJ)
+interpreter: $(OBJ)
 	gcc -o $@ $^ $(CFLAGS) $(LIBS)
 
 clean:
